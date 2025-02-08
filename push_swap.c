@@ -1,62 +1,45 @@
-#include <libc.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: melkess <melkess@student.42.fr>            #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-02-08 13:11:37 by melkess           #+#    #+#             */
+/*   Updated: 2025-02-08 13:11:37 by melkess          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-//char	*push_swap(char	*s)
-//{
-//	int	*stacka;
-//	int	*stackb;
-
-
-//	return stacka;
-//}
-//void	haveTheyValidFormat(char **av)
-//{
-//	int	i;
-
-//	i = 1;
-//	while (av[i])
-//	{
-//		printf("%d\n", ft_atoi(av[i++]));
-//	}
-//}
-
-void	handleError()
+static void	handle_error(void)
 {
-	write(2, "Error\n",6);
+	write(2, "Error\n", 6);
 }
-int	checkargs(int ac, char **av){
-	int		notDigit;
-	int		i = 0;
-	int		j = 0;
+// void	fillStack(t_stack_node **stack)
+// {
+// 	size_t	i;
+// 	t_stack_node *a;
 
-	notDigit = 0;
-	while(av[j])
-	{
-		i = 0;
-		while(av[j][i])
-		{
-			if ( av[j][i] < '0' || av[j][i]> '9')
-				notDigit = 1;
-			i++;
-		}
-		j++;
-	}
+// 	a = *stack;
+// 	i = 0;
+// 	while (a)
+// 	{
+// 		a->index = i;
+// 		a->next = NULL;
+// 		i++;
+// 	}
+// }
 
-	if (notDigit)
-		return (1);
-	printf("%d", ft_atoi(*av));
+int	main(int ac, char **av)
+{
+	t_stack_node	*a_stack;
+	t_stack_node	*b_stack;
+
+	a_stack = NULL;
+	b_stack = NULL;
+	if (checkargs(ac, ++av))
+		return (handle_error(), 1);
+	// fillStack(a_stack);
 	return (0);
-}
-int main(int ac, char **av)
-{
-	t_stack_node *astack;
-	t_stack_node *bstack;
-
-	astack = NULL;
-	bstack = NULL;
-	//printf("%d",checkargs(ac, ++av));
-	if (
-		//ac < 2 || av[1] == NULL ||
-	 checkargs(ac, ++av))
-		return (handleError(),0);
 }

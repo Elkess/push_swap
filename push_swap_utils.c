@@ -1,0 +1,75 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: melkess <melkess@student.42.fr>            #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-02-08 12:54:24 by melkess           #+#    #+#             */
+/*   Updated: 2025-02-08 12:54:24 by melkess          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+static int	is_there_duplicates(char **av)
+{
+	int	i;
+	int	j;
+	int	boolean;
+
+	i = 0;
+	j = 0;
+	boolean = 0;
+	while (av[i])
+	{
+		j = i +1;
+		while (av[j])
+		{
+			if (!ft_strcmp(av[i], av[j]))
+				boolean = 1;
+			j++;
+		}
+		i++;
+	}
+	return (boolean);
+}
+
+static int	is_it_not_digit(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (!s[i])
+		return (1);
+	if (s[i] == '-' || s[i] == '+')
+		i++;
+	while (s[i])
+	{
+		if (s[i] < '0' || s[i] > '9')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+static int	is_int(char *s)
+{
+	if (ft_atoi(s) > INT_MAX || ft_atoi(s) < INT_MIN)
+		return (1);
+	return (0);
+}
+
+int	checkargs(int ac, char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+	{
+		if (is_there_duplicates(av) || is_it_not_digit(av[i]) || is_int(av[i]))
+			return (1);
+		i++;
+	}
+	return (0);
+}

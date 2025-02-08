@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 13:35:08 by melkess           #+#    #+#             */
-/*   Updated: 2025/01/18 19:43:05 by melkess          ###   ########.fr       */
+/*   Created: 2025/02/08 11:54:05 by melkess           #+#    #+#             */
+/*   Updated: 2025/02/08 12:12:47 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 static void	ft_skip(const char *str, int *i, int *sign)
 {
@@ -24,7 +24,7 @@ static void	ft_skip(const char *str, int *i, int *sign)
 	}
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int				i;
 	int				sign;
@@ -37,14 +37,10 @@ int	ft_atoi(const char *str)
 	ft_skip(str, &i, &sign);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		if ((i > 9 && sign == 1) || (i > 10 && sign == -1))
+			return (2147483648);
 		temp = result;
 		result = result * 10 + str[i] - 48;
-		if (result / 10 != temp)
-		{
-			if (sign == 1)
-				return (-1);
-			return (0);
-		}
 		i++;
 	}
 	return (result * sign);
