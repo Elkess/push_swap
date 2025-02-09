@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melkess <melkess@student.42.fr>            #+#  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-02-08 12:54:24 by melkess           #+#    #+#             */
-/*   Updated: 2025-02-08 12:54:24 by melkess          ###   ########.fr       */
+/*   Created: 2025/02/08 12:54:24 by melkess           #+#    #+#             */
+/*   Updated: 2025/02/09 06:01:30 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	is_it_not_digit(char *s)
 	i = 0;
 	if (!s[i])
 		return (1);
-	if (s[i] == '-' || s[i] == '+')
+	if ((s[i] == '-' || s[i] == '+') && s[i])
 		i++;
 	while (s[i])
 	{
@@ -60,16 +60,44 @@ static int	is_int(char *s)
 	return (0);
 }
 
-int	checkargs(int ac, char **av)
+char	**prepare_av(char	**av)
+{
+	char	**newav;
+	char	*s;
+	int		i;
+	int		j;
+
+	newav = NULL;
+	s = NULL;
+	i = 0;
+	while(av[i])
+	{
+		newav = ft_split(av[i], ' ');
+		j = 0;
+		while (newav[j])
+		{
+			s = ft_strjoin(s, newav[j]);
+			s = ft_strjoin(s, " ");
+			j++;
+		}
+		i++;
+	}
+	av = ft_split(s, ' ');
+	return (av);
+}
+
+char	**checkargs(int *ac, char **av)
 {
 	int	i;
 
+	*ac = 0;
+	av = prepare_av(av);
 	i = 0;
 	while (av[i])
 	{
 		if (is_there_duplicates(av) || is_it_not_digit(av[i]) || is_int(av[i]))
-			return (1);
+			*ac = 1;
 		i++;
 	}
-	return (0);
+	return (av);
 }
