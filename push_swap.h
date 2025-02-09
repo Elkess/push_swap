@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:14:49 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/09 05:53:16 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/09 06:31:25 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_stack_node
 long	ft_atoi(const char *str);
 int		ft_strcmp(const char *s1, const char *s2);
 char	**checkargs(int *ac, char **av);
+int		is_there_duplicates(char **av);
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strdup(const char *s1);

@@ -6,13 +6,13 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 12:54:24 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/09 06:01:30 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/09 06:34:29 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_there_duplicates(char **av)
+int		is_there_duplicates(char **av)
 {
 	int	i;
 	int	j;
@@ -26,7 +26,7 @@ static int	is_there_duplicates(char **av)
 		j = i +1;
 		while (av[j])
 		{
-			if (!ft_strcmp(av[i], av[j]))
+			if (!ft_strcmp(av[i], av[j]) || (ft_atoi(av[i]) == ft_atoi(av[j])))
 				boolean = 1;
 			j++;
 		}
@@ -42,7 +42,7 @@ static int	is_it_not_digit(char *s)
 	i = 0;
 	if (!s[i])
 		return (1);
-	if ((s[i] == '-' || s[i] == '+') && s[i])
+	if ((s[i] == '-' || s[i] == '+') && s[i+1])
 		i++;
 	while (s[i])
 	{

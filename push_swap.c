@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:11:37 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/09 05:51:24 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/09 06:24:18 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,25 @@ int *transform_to_numbers(char **av)
 	return (arr);
 }
 
-// void	fillStack(t_stack_node **stack)
+// t_stack_node	*fillStack(t_stack_node *stack, int	*arr, int len)
 // {
 // 	size_t	i;
-// 	t_stack_node *a;
 
-// 	a = *stack;
 // 	i = 0;
-// 	while (a)
+// 	while (i < len)
 // 	{
-// 		a->index = i;
-// 		a->next = NULL;
+// 		stack = ft_append_node(stack , ft_create_new_node(arr[i]));
 // 		i++;
 // 	}
+// 	return (stack);
 // }
-
+void ff()
+{
+	system("leaks a.out");
+}
 int	main(int ac, char **av)
 {
+	// atexit(ff);
 	t_stack_node	*a_stack;
 	t_stack_node	*b_stack;
 	int				*arr;
@@ -79,7 +81,6 @@ int	main(int ac, char **av)
 	{
 		printf("{%d}", arr[i]);
 	}
-	
-	// fillStack(a_stack);
+	// a_stack = fillStack(a_stack, arr, avlen(av));
 	return (0);
 }
