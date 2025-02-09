@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 11:54:05 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/08 12:12:47 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/09 10:57:44 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ long	ft_atoi(const char *str)
 	ft_skip(str, &i, &sign);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if ((i > 9 && sign == 1) || (i > 10 && sign == -1))
+		if (((i > 9 && sign == 1) || (i > 10 && sign == -1)) && result > INT_MAX)
 			return (2147483648);
 		temp = result;
 		result = result * 10 + str[i] - 48;

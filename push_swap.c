@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:11:37 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/09 06:24:18 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/09 14:31:30 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void ff()
 {
 	system("leaks a.out");
 }
+
 int	main(int ac, char **av)
 {
 	// atexit(ff);
@@ -74,9 +75,9 @@ int	main(int ac, char **av)
 	a_stack = NULL;
 	b_stack = NULL;
 	av = checkargs(&ac, ++av);
+	arr = transform_to_numbers(av);
 	if (ac)
 		return (handle_error(), 1);
-	arr = transform_to_numbers(av);
 	for (size_t i = 0; i < avlen(av); i++)
 	{
 		printf("{%d}", arr[i]);
