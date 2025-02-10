@@ -33,7 +33,6 @@ typedef struct s_stack_node
 long			ft_atoi(const char *str);
 int				ft_strcmp(const char *s1, const char *s2);
 char			**checkargs(int *ac, char **av);
-int				is_there_duplicates(char **av);
 char			**ft_split(char const *s, char c);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strdup(const char *s1);
