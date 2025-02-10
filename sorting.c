@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-char    *sorting(t_stack_node *a, t_stack_node *b)
+char	*sorting(t_stack_node *a, t_stack_node *b)
 {
 	return ("sorting...");
 }

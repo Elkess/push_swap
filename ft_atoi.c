@@ -37,7 +37,8 @@ long	ft_atoi(const char *str)
 	ft_skip(str, &i, &sign);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (((i > 9 && sign == 1) || (i > 10 && sign == -1)) && result > INT_MAX)
+		if (((i > 9 && sign == 1) || (i > 10 && sign == -1))
+			&& result > INT_MAX)
 			return (2147483648);
 		temp = result;
 		result = result * 10 + str[i] - 48;

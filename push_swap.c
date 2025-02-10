@@ -46,14 +46,8 @@ static int	*transform_to_numbers(char **av)
 	return (arr);
 }
 
-void ff()
-{
-	system("leaks a.out");
-}
-
 int	main(int ac, char **av)
 {
-	// atexit(ff);
 	t_stack_node	*a_stack;
 	t_stack_node	*b_stack;
 	int				*arr;
@@ -66,20 +60,10 @@ int	main(int ac, char **av)
 	arr = transform_to_numbers(av);
 	if (ac)
 		return (handle_error(), 1);
-	// for (size_t i = 0; i < avlen(av); i++)
-	// {
-	// 	printf("{%d}", arr[i]);
-	// }
-	// puts("");
 	a_stack = initiate_stack(a_stack, arr, avlen(av));
 	if (!is_it_sorted(a_stack))
-		printf("%s\n",sorting(a_stack, b_stack));
+		printf("%s\n", sorting(a_stack, b_stack));
 	else
 		puts("sorted");
-	// while (a_stack)
-	// {
-	// 	printf("%zu -> %d\n", a_stack->index, a_stack->value);
-	// 	a_stack = a_stack->next;
-	// }
 	return (0);
 }

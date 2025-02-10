@@ -47,7 +47,7 @@ t_stack_node	*initiate_stack(t_stack_node *stack, int	*arr, int len)
 	i = 0;
 	while (i < len)
 	{
-		stack = append_node(stack , create_new_node(arr[i], i));
+		stack = append_node(stack, create_new_node(arr[i], i));
 		i++;
 	}
 	return (stack);

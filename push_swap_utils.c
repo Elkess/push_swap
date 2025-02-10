@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int		is_there_duplicates(char **av)
+static int	is_there_duplicates(char **av)
 {
 	int	i;
 	int	j;
@@ -42,7 +42,7 @@ static int	is_not_digit(char *s)
 	i = 0;
 	if (!s[i])
 		return (1);
-	if ((s[i] == '-' || s[i] == '+') && s[i+1])
+	if ((s[i] == '-' || s[i] == '+') && s[i +1])
 		i++;
 	while (s[i])
 	{
@@ -70,7 +70,7 @@ char	**prepare_av(char	**av)
 	newav = NULL;
 	s = NULL;
 	i = 0;
-	while(av[i])
+	while (av[i])
 	{
 		newav = ft_split(av[i], ' ');
 		j = 0;
@@ -126,8 +126,8 @@ char	**checkargs(int *ac, char **av)
 	i = 0;
 	while (av[i])
 	{
-		// printf("[%s]", av[i]);
-		if (is_there_duplicates(av) || is_not_digit(av[i]) || is_int(av[i]) || n)
+		if (is_there_duplicates(av)
+			|| is_not_digit(av[i]) || is_int(av[i]) || n)
 			*ac = 1;
 		i++;
 	}
