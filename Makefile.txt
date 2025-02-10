@@ -1,0 +1,1 @@
+cc push_swap.c ft_atoi.c push_swap_utils.c ft_strcmp.c ft_strjoin.c ft_split.c ft_strdup.c ft_strlen.c ft_substr.c initiate_stack.c is_it_sorted.c sorting.c 
