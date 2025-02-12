@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:39:33 by codespace         #+#    #+#             */
-/*   Updated: 2025/02/12 12:43:55 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/12 14:42:16 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static t_stack_node	*create_new_node(int value, int index)
 	// newnode->target_node = NULL;
 	newnode->next = NULL;
 	// newnode->prev = NULL;
+	return (newnode);
 }
 
 static t_stack_node	*append_node(t_stack_node *head, t_stack_node *newnode)
