@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:14:49 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/10 11:23:09 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/12 12:06:54 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,15 @@ t_stack_node	*initiate_stack(t_stack_node *stack, int	*arr, int len);
 int				is_it_sorted(t_stack_node *stack);
 char			*sorting(t_stack_node *a, t_stack_node *b);
 
-// Handle errors DONE
+// moves
+void	swap_stack(t_stack_node **stack);
+void	rotate_stack(t_stack_node **stack);
+void	push_from_stack1_to_stack2(t_stack_node **stack1, t_stack_node **stack2);
+void	rrotate_stack(t_stack_node **stack);
 
-// Stack initiation DONE
-
-//Nodes initiation DONE
-
-//Stack utils
-
-//Commands
-
-//Algorithms
+// Global moves
+void	swap(t_stack_node **a, t_stack_node **b);
+void	rotate(t_stack_node **a, t_stack_node **b);
+void	rrotate(t_stack_node **a, t_stack_node **b);
 
 #endif

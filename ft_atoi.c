@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 11:54:05 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/09 10:57:44 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/11 09:01:11 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ long	ft_atoi(const char *str)
 {
 	int				i;
 	int				sign;
-	long long		result;
-	long long		temp;
+	long			result;
 
 	sign = 1;
 	i = 0;
@@ -40,7 +39,6 @@ long	ft_atoi(const char *str)
 		if (((i > 9 && sign == 1) || (i > 10 && sign == -1))
 			&& result > INT_MAX)
 			return (2147483648);
-		temp = result;
 		result = result * 10 + str[i] - 48;
 		i++;
 	}
