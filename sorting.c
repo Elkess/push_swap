@@ -6,13 +6,13 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:21:29 by codespace         #+#    #+#             */
-/*   Updated: 2025/02/10 11:24:34 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/12 14:02:16 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*sorting(t_stack_node *a, t_stack_node *b)
+void	sorting(t_stack_node **a, t_stack_node **b)
 {
-	return ("sorting...");
+	printf("sorting...\n");
 }

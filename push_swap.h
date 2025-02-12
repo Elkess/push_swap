@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:14:49 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/12 12:06:54 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/12 14:02:02 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,8 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strdup(const char *s1);
 size_t			ft_strlen(const char *s);
 char			*ft_strjoin(char const *s1, char const *s2);
-t_stack_node	*initiate_stack(t_stack_node *stack, int	*arr, int len);
+t_stack_node	*initiate_stack(t_stack_node *stack, int	*arr, size_t len);
 int				is_it_sorted(t_stack_node *stack);
-char			*sorting(t_stack_node *a, t_stack_node *b);
 
 // moves
 void	swap_stack(t_stack_node **stack);
@@ -52,5 +51,10 @@ void	rrotate_stack(t_stack_node **stack);
 void	swap(t_stack_node **a, t_stack_node **b);
 void	rotate(t_stack_node **a, t_stack_node **b);
 void	rrotate(t_stack_node **a, t_stack_node **b);
+
+// Sorting
+void	sort_two(t_stack_node **stack);
+void	sort_three(t_stack_node **stack);
+void	sorting(t_stack_node **a, t_stack_node **b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:39:33 by codespace         #+#    #+#             */
-/*   Updated: 2025/02/10 10:59:08 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/12 12:43:55 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static t_stack_node	*append_node(t_stack_node *head, t_stack_node *newnode)
 	return (head);
 }
 
-t_stack_node	*initiate_stack(t_stack_node *stack, int	*arr, int len)
+t_stack_node	*initiate_stack(t_stack_node *stack, int	*arr, size_t len)
 {
 	size_t	i;
 
