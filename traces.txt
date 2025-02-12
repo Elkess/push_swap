@@ -1,0 +1,4 @@
+BONUS-All size test
+TEST 1 ARG:0
+TEST 2 ARG:0 1
+TEST 3 ARG:2 0 1

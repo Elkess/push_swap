@@ -59,11 +59,25 @@ static int	is_int(char *s)
 		return (1);
 	return (0);
 }
+void ft_free(char **str)
+{
+	int i = 0;
+	if (!str)
+		return ;
+
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
 
 char	**prepare_av(char	**av)
 {
 	char	**newav;
 	char	*s;
+	char	*tmp;
 	int		i;
 	int		j;
 
@@ -72,18 +86,20 @@ char	**prepare_av(char	**av)
 	i = 0;
 	while (av[i])
 	{
-		newav = ft_split(av[i], ' ');
+		ft_free(newav);
+		newav = ft_split(av[i++], ' ');
 		j = 0;
 		while (newav[j])
 		{
-			s = ft_strjoin(s, newav[j]);
+			tmp = s;
+			s = ft_strjoin(s, newav[j++]);
+			free(tmp);
+			tmp = s;
 			s = ft_strjoin(s, " ");
-			j++;
+			free(tmp);
 		}
-		i++;
 	}
-	av = ft_split(s, ' ');
-	return (av);
+	return (av = ft_split(s, ' '), free(s), av);
 }
 
 int	is_av_full_of_spaces(char **s)

@@ -30,6 +30,8 @@ typedef struct s_stack_node
 	// struct s_stack_node	*prev;
 }						t_stack_node;
 
+void			free_stack(t_stack_node *stack);
+void			ft_free(char **str);
 long			ft_atoi(const char *str);
 int				ft_strcmp(const char *s1, const char *s2);
 char			**checkargs(int *ac, char **av);
@@ -40,6 +42,8 @@ size_t			ft_strlen(const char *s);
 char			*ft_strjoin(char const *s1, char const *s2);
 t_stack_node	*initiate_stack(t_stack_node *stack, int	*arr, size_t len);
 int				is_it_sorted(t_stack_node *stack);
+
+
 
 // moves
 void	swap_stack(t_stack_node **stack);

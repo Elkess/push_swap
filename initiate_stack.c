@@ -41,7 +41,7 @@ static t_stack_node	*append_node(t_stack_node *head, t_stack_node *newnode)
 	return (head);
 }
 
-t_stack_node	*initiate_stack(t_stack_node *stack, int	*arr, size_t len)
+t_stack_node	*initiate_stack(t_stack_node *stack, int *arr, size_t len)
 {
 	size_t	i;
 
@@ -51,5 +51,6 @@ t_stack_node	*initiate_stack(t_stack_node *stack, int	*arr, size_t len)
 		stack = append_node(stack, create_new_node(arr[i], i));
 		i++;
 	}
+	free(arr);
 	return (stack);
 }

@@ -45,9 +45,13 @@ static int	*transform_to_numbers(char **av)
 	}
 	return (arr);
 }
-
+void f()
+{
+	system("leaks a.out");
+}
 int	main(int ac, char **av)
 {
+	atexit(f);
 	t_stack_node	*a_stack;
 	t_stack_node	*b_stack;
 
@@ -70,5 +74,5 @@ int	main(int ac, char **av)
 		else
 			sorting(&a_stack, &b_stack);
 	}
-	return (0);
+	return (free_stack(a_stack), ft_free(av), 0);
 }
