@@ -99,7 +99,7 @@ char	**prepare_av(char	**av)
 			free(tmp);
 		}
 	}
-	return (av = ft_split(s, ' '), free(s), av);
+	return (ft_free(newav), av = ft_split(s, ' '), free(s), av);
 }
 
 int	is_av_full_of_spaces(char **s)
@@ -138,7 +138,7 @@ char	**checkargs(int *ac, char **av)
 	n = is_av_full_of_spaces(av);
 	av = prepare_av(av);
 	if (!av)
-		return (*ac = 1, av);
+		return (*ac = 1, NULL);
 	i = 0;
 	while (av[i])
 	{

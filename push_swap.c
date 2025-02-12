@@ -49,6 +49,7 @@ void f()
 {
 	system("leaks a.out");
 }
+
 int	main(int ac, char **av)
 {
 	atexit(f);

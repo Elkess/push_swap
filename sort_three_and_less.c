@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "push_swap.h"
 
 static int	max_node(t_stack_node *node)
@@ -56,7 +54,6 @@ void	sort_three(t_stack_node **stack)
 	{
 		rrotate_stack(stack);
 		write(1, "rra\n", 4);
-
 	}
 	node = *stack;
 	if (node->value > node->next->value)
