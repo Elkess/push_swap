@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:14:34 by codespace         #+#    #+#             */
-/*   Updated: 2025/02/12 13:39:47 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/12 14:21:13 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ int	is_it_sorted(t_stack_node *stack)
 		else
 			return (0);
 	}
-	printf("sorted\n");
 	return (1);
 }
