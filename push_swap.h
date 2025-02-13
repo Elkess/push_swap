@@ -6,7 +6,7 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:28:28 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/12 21:30:18 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/13 09:07:16 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,20 @@ char			*ft_strjoin(char const *s1, char const *s2);
 t_stack_node	*initiate_stack(t_stack_node *stack, int	*arr, size_t len);
 int				is_it_sorted(t_stack_node *stack);
 
-
-
 // moves
-void	swap_stack(t_stack_node **stack);
-void	rotate_stack(t_stack_node **stack);
-void	push_from_stack1_to_stack2(t_stack_node **stack1, t_stack_node **stack2);
-void	rrotate_stack(t_stack_node **stack);
+void			swap_stack(t_stack_node **stack);
+void			rotate_stack(t_stack_node **stack);
+void			push_from_s1_to_s2(t_stack_node **s1, t_stack_node **s2);
+void			rrotate_stack(t_stack_node **stack);
 
 // Global moves
-void	swap(t_stack_node **a, t_stack_node **b);
-void	rotate(t_stack_node **a, t_stack_node **b);
-void	rrotate(t_stack_node **a, t_stack_node **b);
+void			swap(t_stack_node **a, t_stack_node **b);
+void			rotate(t_stack_node **a, t_stack_node **b);
+void			rrotate(t_stack_node **a, t_stack_node **b);
 
 // Sorting
-void	sort_two(t_stack_node **stack);
-void	sort_three(t_stack_node **stack);
-void	sorting(t_stack_node **a, t_stack_node **b);
+void			sort_two(t_stack_node **stack);
+void			sort_three(t_stack_node **stack);
+void			sorting(t_stack_node **a, t_stack_node **b);
 
 #endif

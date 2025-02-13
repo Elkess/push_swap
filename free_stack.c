@@ -6,7 +6,7 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:26:21 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/12 21:29:38 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/13 09:01:07 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_stack(t_stack_node *stack)
 {
-	while(stack)
+	while (stack)
 	{
 		free(stack);
 		stack = stack->next;

@@ -6,7 +6,7 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:28:12 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/12 21:30:13 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/13 09:09:40 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,14 @@ static int	is_int(char *s)
 		return (1);
 	return (0);
 }
-void ft_free(char **str)
+
+void	ft_free(char **str)
 {
-	int i = 0;
+	int	i ;
+
+	i = 0;
 	if (!str)
 		return ;
-
 	while (str[i])
 	{
 		free(str[i]);

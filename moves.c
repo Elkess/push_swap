@@ -6,7 +6,7 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:28:04 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/12 21:30:10 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/13 09:07:56 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	swap_stack(t_stack_node **stack)
 {
-	t_stack_node *tmp1;
-	t_stack_node *tmp2;
+	t_stack_node	*tmp1;
+	t_stack_node	*tmp2;
 
 	if (!*stack || !(*stack)->next)
 		return ;
@@ -38,7 +38,7 @@ void	rotate_stack(t_stack_node **stack)
 	while (last)
 	{
 		if (last->next == NULL)
-			break;
+			break ;
 		last = last->next;
 	}
 	last->next = first;
@@ -46,20 +46,19 @@ void	rotate_stack(t_stack_node **stack)
 	first->next = NULL;
 }
 
-void	push_from_stack1_to_stack2(t_stack_node **stack1, t_stack_node **stack2)
+void	push_from_s1_to_s2(t_stack_node **s1, t_stack_node **s2)
 {
-	t_stack_node 	*tmp;
+	t_stack_node	*tmp;
 
-	if (!(*stack1))
+	if (!(*s1))
 		return ;
-
-	tmp = *stack2;
-	(*stack2) = *stack1;
-	*stack1 = (*stack1)->next;
-	if (!(*stack2))
-		(*stack2)->next = NULL;
+	tmp = *s2;
+	(*s2) = *s1;
+	*s1 = (*s1)->next;
+	if (!(*s2))
+		(*s2)->next = NULL;
 	else
-		(*stack2)->next = tmp;
+		(*s2)->next = tmp;
 }
 
 void	rrotate_stack(t_stack_node **stack)
