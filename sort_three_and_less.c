@@ -6,7 +6,7 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:28:34 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/12 21:30:21 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/13 09:10:41 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,4 @@ void	sort_three(t_stack_node **stack)
 		swap_stack(stack);
 		write(1, "sa\n", 3);
 	}
-
 }
