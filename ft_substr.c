@@ -6,7 +6,7 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:27:39 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/12 21:30:02 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/18 10:41:26 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	lenfromstart = ft_strlen(s + start);
 	if (len > lenfromstart)
 		len = lenfromstart;
-	substr = malloc(len +1);
+	substr = ft_malloc(len +1);
 	if (!substr)
 		return (NULL);
 	i = 0;

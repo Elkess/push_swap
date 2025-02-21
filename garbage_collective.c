@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   garbage_collective.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 19:55:13 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/17 20:02:11 by melkess          ###   ########.fr       */
+/*   Created: 2025/02/18 10:14:10 by melkess           #+#    #+#             */
+/*   Updated: 2025/02/21 17:25:13 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_free(void *ptr, int flag)
 	static void	*lst[INT_MAX];
 	static int	i;
 	int			j;
+
 	if (flag)
 	{
 		j = 0;
@@ -27,12 +28,10 @@ void	ft_free(void *ptr, int flag)
 		lst[i++] = ptr;
 }
 
-void	ft_exit(int status)
+void	ft_exit(int n)
 {
 	ft_free(NULL, 1);
-	if (status)
-		perror("");
-	exit(status);
+	exit(n);
 }
 
 void	*ft_malloc(size_t n)

@@ -6,7 +6,7 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:27:07 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/12 21:29:54 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/18 10:36:35 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strdup(const char *s1)
 	i = 0;
 	while (s1[i])
 		i++;
-	s = (char *)malloc(i +1);
+	s = (char *)ft_malloc(i +1);
 	if (!s)
 		return (NULL);
 	i = 0;
