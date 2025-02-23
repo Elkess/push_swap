@@ -6,7 +6,7 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:28:19 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/13 09:05:09 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/23 08:53:18 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	*transform_to_numbers(char **av)
 	int		*arr;
 
 	len = avlen(av);
-	arr = malloc(len * sizeof(int));
+	arr = ft_malloc(len * sizeof(int));
 	if (!arr)
 		return (NULL);
 	i = 0;
@@ -48,9 +48,9 @@ static int	*transform_to_numbers(char **av)
 
 void	f(void)
 {
-	system("leaks a.out");
-	atexit(f);
+	system("leaks push_swap");
 }
+// atexit(f);
 
 int	main(int ac, char **av)
 {
@@ -74,7 +74,7 @@ int	main(int ac, char **av)
 		else if (avlen(av) == 3)
 			sort_three(&a_stack);
 		else
-			sorting(&a_stack, &b_stack);
+			sorting(&a_stack, &b_stack, transform_to_numbers(av), avlen(av));
 	}
-	return (free_stack(a_stack), ft_free(av), 0);
+	ft_exit(0);
 }

@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   stack_len.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 21:27:39 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/18 10:41:26 by melkess          ###   ########.fr       */
+/*   Created: 2025/02/23 09:24:46 by melkess           #+#    #+#             */
+/*   Updated: 2025/02/23 09:24:59 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+size_t	stack_len(t_stack_node *stack)
 {
-	char	*substr;
-	size_t	i;
-	size_t	lenfromstart;
+	size_t	len;
 
-	if (!s)
-		return (NULL);
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	lenfromstart = ft_strlen(s + start);
-	if (len > lenfromstart)
-		len = lenfromstart;
-	substr = ft_malloc(len +1);
-	if (!substr)
-		return (NULL);
-	i = 0;
-	while (i < len)
+	len = 0;
+	while (stack)
 	{
-		substr[i] = s[start + i];
-		i++;
+		len++;
+		stack = stack->next;
 	}
-	substr[i] = '\0';
-	return (substr);
+	return (len);
 }

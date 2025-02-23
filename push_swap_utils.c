@@ -6,7 +6,7 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:28:12 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/13 09:09:40 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/23 09:31:55 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	is_there_duplicates(char **av)
 	return (boolean);
 }
 
-static int	is_not_digit(char *s)
+static int	is_not_int(char *s)
 {
 	int	i;
 
@@ -50,29 +50,9 @@ static int	is_not_digit(char *s)
 			return (1);
 		i++;
 	}
-	return (0);
-}
-
-static int	is_int(char *s)
-{
 	if (ft_atoi(s) > INT_MAX || ft_atoi(s) < INT_MIN)
 		return (1);
 	return (0);
-}
-
-void	ft_free(char **str)
-{
-	int	i ;
-
-	i = 0;
-	if (!str)
-		return ;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
 }
 
 char	**prepare_av(char	**av)
@@ -88,20 +68,17 @@ char	**prepare_av(char	**av)
 	i = 0;
 	while (av[i])
 	{
-		ft_free(newav);
 		newav = ft_split(av[i++], ' ');
 		j = 0;
 		while (newav[j])
 		{
 			tmp = s;
 			s = ft_strjoin(s, newav[j++]);
-			free(tmp);
 			tmp = s;
 			s = ft_strjoin(s, " ");
-			free(tmp);
 		}
 	}
-	return (ft_free(newav), av = ft_split(s, ' '), free(s), av);
+	return (av = ft_split(s, ' '), av);
 }
 
 int	is_av_full_of_spaces(char **s)
@@ -144,8 +121,7 @@ char	**checkargs(int *ac, char **av)
 	i = 0;
 	while (av[i])
 	{
-		if (is_there_duplicates(av)
-			|| is_not_digit(av[i]) || is_int(av[i]) || n)
+		if (is_there_duplicates(av) || is_not_int(av[i]) || n)
 			*ac = 1;
 		i++;
 	}

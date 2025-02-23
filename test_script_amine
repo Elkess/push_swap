@@ -1,0 +1,36 @@
+#!/bin/bash
+
+PURPLE='\033[0;35m' # Purple color
+NC='\033[0m'        # No color
+
+echo -e "${PURPLE}"
+echo "    __    ____   __  ___ ______ ____ "
+echo "   / /   / __ \ /  |/  // ____// __ \\"
+echo "  / /   / / / // /|_/ // __/  / /_/ /"
+echo " / /___/ /_/ // /  / // /___ / _, _/ "
+echo "/_____/\____//_/  /_//_____//_/ |_|  "
+echo -e "${NC}"
+
+max_instr=0
+max_arg=""
+
+trap 'echo -e "\nMax instructions found: $max_instr\nARG=\"$max_arg\""; exit 0' SIGINT
+
+while true; do
+    ARG=$(seq 100 | sort -R | tr '\n' ' ')
+    INSTR_COUNT=$(./push_swap $ARG | wc -l)
+
+    if [ "$INSTR_COUNT" -gt 700 ]; then
+        echo "Found a case with $INSTR_COUNT instructions!"
+        echo "ARG=\"$ARG\""
+        break
+    fi
+
+    if [ "$INSTR_COUNT" -gt "$max_instr" ]; then
+        max_instr=$INSTR_COUNT
+        max_arg="$ARG"
+    fi
+
+    echo "Checked case with $INSTR_COUNT instructions"
+done
+

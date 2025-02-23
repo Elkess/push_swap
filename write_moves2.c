@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   write_moves2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 21:27:07 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/18 10:36:35 by melkess          ###   ########.fr       */
+/*   Created: 2025/02/20 21:41:09 by melkess           #+#    #+#             */
+/*   Updated: 2025/02/23 09:34:29 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_strdup(const char *s1)
+void	ra(t_stack_node **a)
 {
-	char	*s;
-	size_t	i;
+	rotate_stack(a);
+	write(1, "ra\n", 3);
+}
 
-	i = 0;
-	while (s1[i])
-		i++;
-	s = (char *)ft_malloc(i +1);
-	if (!s)
-		return (NULL);
-	i = 0;
-	while (s1[i])
-	{
-		s[i] = s1[i];
-		i++;
-	}
-	s[i] = '\0';
-	return (s);
+void	rb(t_stack_node **b)
+{
+	rotate_stack(b);
+	write(1, "rb\n", 3);
+}
+
+void	rra(t_stack_node **a)
+{
+	rrotate_stack(a);
+	write(1, "rra\n", 4);
+}
+
+void	rrb(t_stack_node **b)
+{
+	rrotate_stack(b);
+	write(1, "rrb\n", 4);
 }

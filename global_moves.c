@@ -6,7 +6,7 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:27:45 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/12 21:30:03 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/23 09:37:30 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,19 @@ void	swap(t_stack_node **a, t_stack_node **b)
 {
 	swap_stack(a);
 	swap_stack(b);
+	write(1, "ss\n", 3);
 }
 
 void	rotate(t_stack_node **a, t_stack_node **b)
 {
 	rotate_stack(a);
 	rotate_stack(b);
+	write(1, "rr\n", 3);
 }
 
 void	rrotate(t_stack_node **a, t_stack_node **b)
 {
 	rrotate_stack(a);
 	rrotate_stack(b);
+	write(1, "rrr\n", 4);
 }

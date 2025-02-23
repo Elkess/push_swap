@@ -6,7 +6,7 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:26:51 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/12 21:29:49 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/19 13:07:20 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	nbrwords = ft_nbr_words(s, c);
-	splitedstr = (char **) malloc((nbrwords +1) * sizeof(char *));
+	splitedstr = (char **) ft_malloc((nbrwords +1) * sizeof(char *));
 	if (!splitedstr)
 		return (NULL);
 	i = 0;

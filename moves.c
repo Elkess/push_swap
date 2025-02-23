@@ -6,7 +6,7 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:28:04 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/13 09:07:56 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/21 17:26:17 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,12 @@ void	push_from_s1_to_s2(t_stack_node **s1, t_stack_node **s2)
 {
 	t_stack_node	*tmp;
 
-	if (!(*s1))
+	if (!s1 || !*s1)
 		return ;
-	tmp = *s2;
-	(*s2) = *s1;
+	tmp = *s1;
 	*s1 = (*s1)->next;
-	if (!(*s2))
-		(*s2)->next = NULL;
-	else
-		(*s2)->next = tmp;
+	tmp->next = *s2;
+	*s2 = tmp;
 }
 
 void	rrotate_stack(t_stack_node **stack)

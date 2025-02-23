@@ -6,36 +6,19 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:28:34 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/13 09:10:41 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/23 09:41:02 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	max_node(t_stack_node *node)
-{
-	int	max;
-
-	max = node->value;
-	while (node->next)
-	{
-		if (max < node->next->value)
-			max = node->next->value;
-		node = node->next;
-	}
-	return (max);
-}
 
 void	sort_two(t_stack_node **stack)
 {
 	t_stack_node	*node;
 
 	node = *stack;
-	if (max_node(node) == node->value)
-	{
-		swap_stack(stack);
-		write(1, "sa\n", 3);
-	}
+	if (find_max(node)->value == node->value)
+		sa(stack);
 }
 
 void	sort_three(t_stack_node **stack)
@@ -44,21 +27,12 @@ void	sort_three(t_stack_node **stack)
 	int				max;
 
 	node = *stack;
-	max = max_node(node);
+	max = find_max(node)->value;
 	if (max == node->value)
-	{
-		rotate_stack(stack);
-		write(1, "ra\n", 3);
-	}
+		ra(stack);
 	else if (max == node->next->value)
-	{
-		rrotate_stack(stack);
-		write(1, "rra\n", 4);
-	}
+		rra(stack);
 	node = *stack;
 	if (node->value > node->next->value)
-	{
-		swap_stack(stack);
-		write(1, "sa\n", 3);
-	}
+		sa(stack);
 }
