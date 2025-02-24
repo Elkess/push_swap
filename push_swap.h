@@ -6,7 +6,7 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:28:28 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/24 20:12:56 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/24 21:09:06 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <unistd.h>
+# include <libc.h>
 
 typedef struct s_stack_node
 {

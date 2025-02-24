@@ -6,7 +6,7 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:28:40 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/24 20:27:12 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/24 21:57:00 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,6 @@ static void	index_stack(t_stack **a, int *arr, size_t len)
 	}
 }
 
-static int	is_reversed(t_stack *a)
-{
-	size_t	len;
-
-	len = stack_len(a);
-	while (a->next)
-	{
-		if (a->value > a->next->value)
-			a = a->next;
-		else
-			return (0);
-	}
-	return (1);
-}
-
 static void	empty_astack(t_stack **a, t_stack **b, int mid)
 {
 	size_t	i;
@@ -93,7 +78,7 @@ static void	empty_astack(t_stack **a, t_stack **b, int mid)
 			rb(b);
 			i++;
 		}
-		else if (ft_mini_sort(*a) == 1)
+		else if (ft_mini_sort(*a))
 			rra(a);
 		else
 			ra(a);
@@ -109,11 +94,6 @@ void	sorting(t_stack **a, t_stack **b, int *arr, size_t len)
 	else
 		mid = 37;
 	index_stack(a, arr, len);
-	if (!is_reversed(*a))
-	{
-		empty_astack(a, b, mid);
-		sortb(a, b);
-	}
-	else
-		rsortb(a, b);
+	empty_astack(a, b, mid);
+	sortb(a, b);
 }

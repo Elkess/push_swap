@@ -6,7 +6,7 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 09:04:45 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/24 20:26:50 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/24 21:52:28 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,10 @@ void	rsortb(t_stack **a, t_stack **b )
 
 static int	ft_patern_checker(t_stack *stack, int dir, int peak, size_t up)
 {
-	while (stack)
+	t_stack	*head;
+
+	head = stack;
+	while (stack->next)
 	{
 		if (stack->index < stack->next->index)
 		{
@@ -81,7 +84,7 @@ static int	ft_patern_checker(t_stack *stack, int dir, int peak, size_t up)
 		}
 		stack = stack->next;
 	}
-	if (peak && up > stack_len(stack) / 4)
+	if (peak && up > stack_len(head) / 4)
 		return (1);
 	return (0);
 }
