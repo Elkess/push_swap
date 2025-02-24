@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_split_and_ft_atoi.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/08 11:54:05 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/12 21:29:46 by melkess          ###   ########.fr       */
+/*   Created: 2025/02/12 21:26:51 by melkess           #+#    #+#             */
+/*   Updated: 2025/02/24 19:50:07 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,60 @@ long	ft_atoi(const char *str)
 		i++;
 	}
 	return (result * sign);
+}
+
+static int	ft_nbr_words(const char *s, char c)
+{
+	int	i;
+	int	n;
+
+	i = 0;
+	n = 0;
+	if (s[0] != c && s[0] != '\0')
+		n++;
+	while (s[i])
+	{
+		if ((s[i] == c && s[i +1] != c && s[i +1] != '\0'))
+			n++;
+		i++;
+	}
+	return (n);
+}
+
+static char	*ft_one_word(const char *s, char c, int *i)
+{
+	int	start;
+	int	end;
+
+	while (s[*i] && s[*i] == c)
+		(*i)++;
+	start = *i;
+	while (s[*i] && s[*i] != c)
+		(*i)++;
+	end = *i;
+	return (ft_substr(s, start, end - start));
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**splitedstr;
+	int		nbrwords;
+	int		i;
+	int		j;
+
+	if (!s)
+		return (NULL);
+	nbrwords = ft_nbr_words(s, c);
+	splitedstr = (char **) ft_malloc((nbrwords +1) * sizeof(char *));
+	if (!splitedstr)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s[i] && j < nbrwords)
+	{
+		splitedstr[j] = ft_one_word(s, c, &i);
+		j++;
+	}
+	splitedstr[j] = NULL;
+	return (splitedstr);
 }

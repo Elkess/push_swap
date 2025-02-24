@@ -6,7 +6,7 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:28:40 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/23 09:26:01 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/24 20:27:12 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ static int	*sort_arr(int *arr, size_t len)
 	return (arr);
 }
 
-void	index_stack(t_stack_node **a, int *arr, size_t len)
+static void	index_stack(t_stack **a, int *arr, size_t len)
 {
 	size_t			i;
-	t_stack_node	*tmp ;
+	t_stack			*tmp ;
 
 	arr = sort_arr(arr, len);
 	tmp = *a;
@@ -60,7 +60,7 @@ void	index_stack(t_stack_node **a, int *arr, size_t len)
 	}
 }
 
-int	is_reversed(t_stack_node *a)
+static int	is_reversed(t_stack *a)
 {
 	size_t	len;
 
@@ -75,26 +75,23 @@ int	is_reversed(t_stack_node *a)
 	return (1);
 }
 
-void	empty_astack(t_stack_node **a, t_stack_node **b, size_t len, int mid)
+static void	empty_astack(t_stack **a, t_stack **b, int mid)
 {
-	size_t			i;
+	size_t	i;
 
 	i = 0;
-	len = stack_len(*a);
-	while (len)
+	while (*a)
 	{
 		if ((*a)->index <= i)
 		{
 			pb(a, b);
 			i++;
-			len--;
 		}
 		else if ((*a)->index < i + mid)
 		{
 			pb(a, b);
 			rb(b);
 			i++;
-			len--;
 		}
 		else if (ft_mini_sort(*a) == 1)
 			rra(a);
@@ -103,18 +100,18 @@ void	empty_astack(t_stack_node **a, t_stack_node **b, size_t len, int mid)
 	}
 }
 
-void	sorting(t_stack_node **a, t_stack_node **b, int *arr, size_t len)
+void	sorting(t_stack **a, t_stack **b, int *arr, size_t len)
 {
 	int	mid;
 
 	if (len <= 100)
 		mid = 11;
 	else
-		mid = 38;
+		mid = 37;
 	index_stack(a, arr, len);
 	if (!is_reversed(*a))
 	{
-		empty_astack(a, b, len, mid);
+		empty_astack(a, b, mid);
 		sortb(a, b);
 	}
 	else

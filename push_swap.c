@@ -6,15 +6,30 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:28:19 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/23 08:53:18 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/24 20:12:17 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+t_stack	*find_max( t_stack *stack)
+{
+	t_stack	*max;
+
+	max = stack;
+	while (stack->next)
+	{
+		if (max->value < stack->next->value)
+			max = stack->next;
+		stack = stack->next;
+	}
+	return (max);
+}
+
 static void	handle_error(void)
 {
 	write(2, "Error\n", 6);
+	ft_exit(1);
 }
 
 static size_t	avlen(char	**av)
@@ -46,16 +61,10 @@ static int	*transform_to_numbers(char **av)
 	return (arr);
 }
 
-void	f(void)
-{
-	system("leaks push_swap");
-}
-// atexit(f);
-
 int	main(int ac, char **av)
 {
-	t_stack_node	*a_stack;
-	t_stack_node	*b_stack;
+	t_stack	*a_stack;
+	t_stack	*b_stack;
 
 	if (ac == 1)
 		return (1);

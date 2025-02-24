@@ -6,7 +6,7 @@
 /*   By: melkess <melkess@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:28:12 by melkess           #+#    #+#             */
-/*   Updated: 2025/02/23 09:31:55 by melkess          ###   ########.fr       */
+/*   Updated: 2025/02/24 19:56:46 by melkess          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	is_not_int(char *s)
 	return (0);
 }
 
-char	**prepare_av(char	**av)
+static char	**prepare_av(char	**av)
 {
 	char	**newav;
 	char	*s;
@@ -81,7 +81,7 @@ char	**prepare_av(char	**av)
 	return (av = ft_split(s, ' '), av);
 }
 
-int	is_av_full_of_spaces(char **s)
+static int	is_av_full_of_spaces(char **s)
 {
 	int	i;
 	int	j;
